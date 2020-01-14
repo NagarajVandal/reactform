@@ -1,4 +1,6 @@
 import * as firebase from "firebase"
+import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
+
 
 const firebaseConfig = {
     apiKey: "AIzaSyDYmC22XvqVRsohMAMRsyQbHddxuKAez0w",
@@ -11,7 +13,16 @@ const firebaseConfig = {
     measurementId: "G-W2R6GNMR13"
   };
 
+  const uiConfig = {
+    signInFlow : "popup",
+    signInSuccessUrl: '/',
+    signInOptions : [
+    firebase.auth.FacebookAuthProvider.PROVIDER_ID ,
+    firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+  ]
+  }
+
 
   const fire = firebase.initializeApp(firebaseConfig)
 
-export default fire
+export  {fire , uiConfig }

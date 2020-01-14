@@ -12,8 +12,11 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import fire from '../../fire';
-import { Redirect } from 'react-router-dom'
+import {fire , uiConfig } from '../../fire';
+import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
+// import firebase from 'firebase';
+// import firebaseui from 'firebase';
+import { Redirect } from 'react-router-dom';
 
 function Copyright() {
   return (
@@ -54,6 +57,8 @@ const loginInfo = {
 }
  function Login() {
   const classes = useStyles();
+
+
 
   const[login , setLogin] = useState(loginInfo)
   const[isLogin , setIsLogin] = useState(false)
@@ -141,6 +146,7 @@ const loginInfo = {
       <Box mt={8}>
         <Copyright />
       </Box>
+      <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={fire.auth()} />
     </Container>
   );
 }
