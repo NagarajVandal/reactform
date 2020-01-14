@@ -1,20 +1,23 @@
-import React, { useState } from "react";
-import Avatar from "@material-ui/core/Avatar";
-import Button from "@material-ui/core/Button";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import TextField from "@material-ui/core/TextField";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Checkbox from "@material-ui/core/Checkbox";
-import Link from "@material-ui/core/Link";
-import Grid from "@material-ui/core/Grid";
-import Box from "@material-ui/core/Box";
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
-import Typography from "@material-ui/core/Typography";
-import { makeStyles } from "@material-ui/core/styles";
-import Container from "@material-ui/core/Container";
-import fire from "../../fire";
+import React , {useState} from 'react';
+import Avatar from '@material-ui/core/Avatar';
+import Button from '@material-ui/core/Button';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import TextField from '@material-ui/core/TextField';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
+import Link from '@material-ui/core/Link';
+import Grid from '@material-ui/core/Grid';
+import Box from '@material-ui/core/Box';
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
+import {fire , uiConfig } from '../../fire';
+import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
+// import firebase from 'firebase';
+// import firebaseui from 'firebase';
+import { Redirect } from 'react-router-dom';
 import { Redirect, useHistory } from "react-router-dom";
-// import { useHistory   }
 
 function Copyright() {
   return (
@@ -57,8 +60,15 @@ function Login() {
   const classes = useStyles();
   const history = useHistory();
 
+<<<<<<< HEAD
   const [login, setLogin] = useState(loginInfo);
   const [isLogin, setIsLogin] = useState(false);
+=======
+
+
+  const[login , setLogin] = useState(loginInfo)
+  const[isLogin , setIsLogin] = useState(false)
+>>>>>>> 3a857ed80f074068346f649d593dc5b6797ae76c
 
   const loginData = e => {
     setLogin({
@@ -147,6 +157,7 @@ function Login() {
       <Box mt={8}>
         <Copyright />
       </Box>
+      <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={fire.auth()} />
     </Container>
   );
 }
